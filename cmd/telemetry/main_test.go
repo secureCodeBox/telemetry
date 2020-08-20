@@ -33,7 +33,7 @@ func encode(data interface{}) io.Reader {
 
 func TestShouldCreateDocumentWhenDataIsGoodAndElasticsearchWorks(t *testing.T) {
 	testObj := new(Service)
-	testObj.On("Create", "telemetry-test", mock.AnythingOfType("TelemetryDataDocument")).Return(nil)
+	testObj.On("Create", mock.AnythingOfType("string"), mock.AnythingOfType("TelemetryDataDocument")).Return(nil)
 
 	router := setupRouter(testObj)
 
@@ -77,7 +77,7 @@ func TestShouldIndicateErrorWhenElasticsearchThrownsError(t *testing.T) {
 	testObj := new(Service)
 	testObj.On(
 		"Create",
-		"telemetry-test",
+		mock.AnythingOfType("string"),
 		mock.AnythingOfType("TelemetryDataDocument"),
 	).Return(
 		fmt.Errorf("Elasticsearch request failed with status code: '%d'", 401),
