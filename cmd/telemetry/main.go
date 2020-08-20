@@ -60,6 +60,11 @@ func setupRouter(service elasticsearch.Service) *gin.Engine {
 	router := gin.New()
 	router.Use(gin.Recovery(), gin.LoggerWithFormatter(log.AnonymousLogFormatter))
 
+	router.GET("/ready", func(c *gin.Context) {
+		c.String(http.StatusOK, "ok")
+		return
+	})
+
 	v1 := router.Group("/v1")
 	{
 		v1.POST("/submit", persistTelemetryData)
