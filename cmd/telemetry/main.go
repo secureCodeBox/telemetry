@@ -82,7 +82,6 @@ func persistTelemetryData(c *gin.Context) {
 	}
 
 	// Ensure submitted ScanTypes are valid
-
 	for _, scanType := range telemetryDataInput.InstalledScanTypes {
 		if _, ok := officialScanTypes[scanType]; !ok {
 			c.String(http.StatusBadRequest, fmt.Sprintf("Invalid ScanType '%s'", scanType))
@@ -96,8 +95,8 @@ func persistTelemetryData(c *gin.Context) {
 		Timestamp:          time.Now(),
 	}
 
-	index := fmt.Sprintf("telemetry-%s", time.Now().Format("2006-01-02"))
-	err := elasticSearchService.Create(index, telemetryData)
+	indexName := fmt.Sprintf("telemetry-%s", time.Now().Format("2006-01-02"))
+	err := elasticSearchService.Create(indexName, telemetryData)
 
 	if err != nil {
 		c.String(http.StatusInternalServerError, "elasticsearch connection failed")
