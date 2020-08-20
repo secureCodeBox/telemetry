@@ -48,7 +48,7 @@ func (service ServiceClient) Create(index string, document interface{}) error {
 		return errors.New("Failed to encode document to json")
 	}
 
-	response, err := service.client.Index("telemetry-test", strings.NewReader(string(bytes)))
+	response, err := service.client.Index(index, strings.NewReader(string(bytes)))
 
 	if err != nil {
 		return err

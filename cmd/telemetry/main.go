@@ -96,7 +96,8 @@ func persistTelemetryData(c *gin.Context) {
 		Timestamp:          time.Now(),
 	}
 
-	err := elasticSearchService.Create("telemetry-test", telemetryData)
+	index := fmt.Sprintf("telemetry-%s", time.Now().Format("2006-01-02"))
+	err := elasticSearchService.Create(index, telemetryData)
 
 	if err != nil {
 		c.String(http.StatusInternalServerError, "elasticsearch connection failed")
