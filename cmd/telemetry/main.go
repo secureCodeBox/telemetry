@@ -105,7 +105,7 @@ func persistTelemetryData(c *gin.Context) {
 		Timestamp:          time.Now(),
 	}
 
-	indexName := fmt.Sprintf("telemetry-%s", time.Now().Format("2006-01-02"))
+	indexName := fmt.Sprintf("telemetry-%s", time.Now().Format("2006"))
 	err := elasticSearchService.Create(indexName, telemetryData)
 
 	if err != nil {
