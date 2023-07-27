@@ -1,4 +1,6 @@
-name: CI
+# SPDX-FileCopyrightText: the secureCodeBox authors
+#
+# SPDX-License-Identifier: Apache-2.0name: CI
 
 on:
   push:
@@ -9,7 +11,7 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Set up Go 1.x
         uses: actions/setup-go@v2
@@ -18,7 +20,7 @@ jobs:
         id: go
 
       - name: Check out code into the Go module directory
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Get dependencies
         run: go mod download
