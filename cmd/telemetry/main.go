@@ -77,7 +77,6 @@ func setupRouter(service elasticsearch.Service) *gin.Engine {
 
 	router.GET("/ready", func(c *gin.Context) {
 		c.String(http.StatusOK, "ok")
-		return
 	})
 
 	v1 := router.Group("/v1")
