@@ -11,7 +11,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/elastic/go-elasticsearch/v7"
+	"github.com/elastic/go-elasticsearch/v8"
 )
 
 // Service can be used to interact with elasticsearch
