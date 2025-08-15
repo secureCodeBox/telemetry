@@ -17,15 +17,15 @@ import (
 // officialScanTypes contains the list of official secureCodeBox Scan Types.
 // Unofficial Scan Types should be reported as "other" to avoid leakage of confidential data via the scan-types name
 var officialScanTypes map[string]bool = map[string]bool{
-	"amass":                  true,
-	"angularjs-csti-scanner": true,
-	"cmseek":                 true,
-	"doggo":                  true,
+	"amass":                  true, // deprecated. we'll keep it in this list to still recieve telemetry data from older versions
+	"angularjs-csti-scanner": true, // deprecated. we'll keep it in this list to still recieve telemetry data from older versions
+	"cmseek":                 true, // deprecated. we'll keep it in this list to still recieve telemetry data from older versions
+	"doggo":                  true, // deprecated. we'll keep it in this list to still recieve telemetry data from older versions
 	"ffuf":                   true,
 	"git-repo-scanner":       true,
 	"gitleaks":               true,
 	"kube-hunter":            true,
-	"kubeaudit":              true,
+	"kubeaudit":              true, // deprecated. we'll keep it in this list to still recieve telemetry data from older versions
 	"ncrack":                 true,
 	"nikto":                  true,
 	"nmap":                   true,
@@ -33,22 +33,23 @@ var officialScanTypes map[string]bool = map[string]bool{
 	"screenshooter":          true,
 	"semgrep":                true,
 	"ssh-audit":              true,
-	"ssh-scan":               true,
+	"ssh-scan":               true, // deprecated. we'll keep it in this list to still recieve telemetry data from older versions
 	"sslyze":                 true,
 	"trivy-filesystem":       true,
 	"trivy-image":            true,
 	"trivy-repo":             true,
 	"trivy-sbom-image":       true,
 	"trivy":                  true,
-	"typo3scan":              true,
-	"whatweb":                true,
+	"typo3scan":              true, // deprecated. we'll keep it in this list to still recieve telemetry data from older versions
+	"whatweb":                true, // deprecated. we'll keep it in this list to still recieve telemetry data from older versions
 	"wpscan":                 true,
-	"zap-advanced-scan":      true,
-	"zap-api-scan":           true,
+	"zap-advanced-scan":      true, // deprecated. we'll keep it in this list to still recieve telemetry data from older versions
+	"zap-api-scan":           true, // deprecated. we'll keep it in this list to still recieve telemetry data from older versions
 	"zap-automation-scan":    true,
-	"zap-baseline-scan":      true,
-	"zap-full-scan":          true,
-	"other":                  true,
+	"zap-baseline-scan":      true, // deprecated. we'll keep it in this list to still recieve telemetry data from older versions
+	"zap-full-scan":          true, // deprecated. we'll keep it in this list to still recieve telemetry data from older versions
+
+	"other": true,
 }
 
 // TelemetryData submitted by telemetry client in operator
