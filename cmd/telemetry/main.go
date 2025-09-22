@@ -35,6 +35,7 @@ var officialScanTypes map[string]bool = map[string]bool{
 	"ssh-audit":              true,
 	"ssh-scan":               true, // deprecated. we'll keep it in this list to still recieve telemetry data from older versions
 	"sslyze":                 true,
+	"subfinder":              true,
 	"trivy-filesystem":       true,
 	"trivy-image":            true,
 	"trivy-repo":             true,
